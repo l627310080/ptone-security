@@ -1,0 +1,687 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,figure,figcaption,code,del,dfn,em,image,q,dl,dt,dd,ol,ul,li,fieldset,form,legend,table,td,tr,th,section,b,select,option {
+	border: 0px;
+	outline: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 14px;
+	font-size: 1.4rem;
+	background-color: #ffffff;
+}
+html,body {
+	font-family: "微软雅黑", Arial;
+}
+ul, ol, li, dl {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	border: 0px;
+	display: block;
+	-ms-interpolation-mode: bicubic;
+}
+::selection { 
+	background:#153f7a; 
+	color:white;
+}
+::-moz-selection { 
+	background:#153f7a; 
+	color:white;
+}
+::-webkit-selection { 
+	background:#153f7a; 
+	color:white;
+}
+
+/*登录页*/
+.bannerWrap {
+	position: relative;
+	height: 380px;
+	height: 38rem;
+	overflow: hidden;
+}
+.bannerWrap .banner {
+	width: 100%;
+	height: 380px;
+	height: 38rem;
+	max-height: 500px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.bannerWrap .logo1 {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -18%;
+	z-index: 1;
+	width: 36%;
+}
+.loginBox {
+	width: 100%;
+}
+.loginWrap {
+	margin: 0 auto;
+	width: 38%;
+}
+.loginName {
+	font-size: 28px;
+	font-size: 2.8rem;
+	color: #18a6b7;
+	text-align: center;
+	border-bottom: 2px solid #a8a8a8;
+	padding-bottom: 28px;
+}
+.loginWrap ul li {
+	overflow: hidden;
+	height: 40px;
+	height: 4rem;
+	line-height: 40px;
+	line-height: 4rem;
+	margin-top: 20px;
+	margin-top: 2rem;
+	padding: 0 32px 0 43px;
+	padding: 0 32px 0 4.3rem;
+	position: relative;
+}
+.loginWrap ul .loginTip {
+	height: auto;
+	line-height: 30px;
+	line-height: 3rem;
+	border: 0 none;
+	background-color: #eceff1;
+	padding: 0 15px;
+	border-radius: 2px;
+}
+.loginWrap ul .loginTip span {
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: red;
+	background:url(../images/tip.png) left center no-repeat;
+	background-size: 1.5rem;
+	padding-left: 20px;
+	padding-left: 2rem;
+}
+.ic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42px;
+	height: 40px;
+	height: 4rem;
+	display: block;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 1.9rem;
+}
+.act {
+	background-image:url(../images/userImg.png);
+}
+.pas {
+	background-image:url(../images/keyImg.png);
+}
+.loginWrap ul li input {
+	width: 100%;
+	height: 40px;
+	height: 4rem;
+	line-height: 40px;
+	line-height: 4rem;
+	font-size: 19px;
+	font-size: 1.9rem;
+	border: none;
+	/*display: inline-block;*/
+
+	color: #999;
+
+	outline: none;
+}
+
+/*账号栏*/
+.account input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+/*密码栏*/
+.password {
+	position: relative;
+}
+.password input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.password .key_word {
+	font-size: 19px;
+	font-size: 1.9rem;
+	position: absolute;
+	left: 4.3rem;
+	margin-left: 6px;
+	top: 0;
+	color: #999;
+}
+
+.keyTip {
+	font-size: 1.9rem;
+	position: absolute;
+	right: 6px;
+	top: 0;
+	color: #999;
+}
+
+
+/*记住栏*/
+.loginWrap ul .rememb {
+	overflow: hidden;
+	border: none;
+	margin: 14px 0;
+	margin: 1.4rem 0;
+	padding: 0 0 0 12px;
+}
+.rememb .rem {
+    display: inline-block;
+    cursor: pointer;
+	font-size: 16px;
+	font-size: 1.6rem;
+	color: #153f7a;
+    background-image: url(../images/sl1_5.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 24px;
+	padding-left: 2.4rem;
+	background-size: 1.8rem;
+	margin-right: 20px;
+}
+.rememb .rem_btn {
+    background-image: url(../images/sl1_6.png);
+}
+/*登录栏*/
+.loginWrap ul .login-button {
+	border: 0 none;
+	background-color: #009bdd;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0;
+}
+.login-button a {
+	display: block;
+	color: white;
+	font-size: 19px;
+	font-size: 1.9rem;
+	font-weight: bold;
+}
+.login-button :hover {
+	background-color: #009bdd;
+}
+/*版权信息*/
+.cpInfo {
+	text-align: center;
+	padding: 10px 0;
+}
+.cpInfo span {
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: #62769b;
+}
+
+/*子页面*/
+.topWrap {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+.headWrap {
+	position: inherit;
+	width: 100%;
+	z-index: inherit;
+}
+/*标题栏*/
+.headTitle {
+	position: relative;
+	height: 44px;
+	height: 4.4rem;
+	line-height: 44px;
+	line-height: 4.4rem;
+	background-color: #153f7a;
+	text-align: center;
+	overflow: hidden;
+}
+.titleName {
+	display: inline-block;
+	font-size: 24px;
+	font-size: 2.4rem;
+	color: #fff;
+}
+.headWrap .headTitle {
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+} 
+.headWrap .titleName img {
+	display: inline-block;
+	width: 48%;
+	vertical-align: middle;
+} 
+.return_btn {
+	width: 21px;
+	height: 44px;
+	height: 4.4rem;
+	line-height: 44px;
+	line-height: 4.4rem;
+	float: left;
+	background:url(../images/sl3_1.png) center center no-repeat;
+	background-size: 1.4rem;
+	margin-left: 12px;
+}
+.index_btn {
+	width: 38px;
+	height: 44px;
+	height: 4.4rem;
+	line-height: 44px;
+	line-height: 4.4rem;
+	float: right;
+	background:url(../images/sl3_2.png) center center no-repeat;
+	background-size: 2.4rem;
+	margin-right: 12px;
+}
+/*栏目tab切换*/
+.headTab {
+	position: relative;
+	height: 44px;
+	height: 4.4rem;
+	line-height: 44px;
+	line-height: 4.4rem;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #f2f5fb;
+}
+.headTab .htab {
+	float: left;
+	display: inline-block;
+	width: 50%;
+	font-size: 22px;
+	font-size: 2.2rem;
+	color: #a9b1bd;
+	background-color: #f2f5fb;
+	text-align: center;
+}
+.headTab .current_tab {
+	color: #153f7a;
+	background-color: #fff;
+}
+/*栏目内容页*/
+.mainCt {
+	overflow: hidden;
+	padding: 89px 0 42px;
+	padding: 8.9rem 0 42px;
+}
+.mainCt ul li {
+	border-bottom: 1px solid #dcdcdc;
+}
+.mainCt ul li dl {
+	display: block;
+	padding: 22px 20px 10px ;
+	line-height: 22px;
+	line-height: 2.2rem;
+}
+.mainCt ul li dt {
+	padding-bottom: 12px;
+}
+.mainCt ul li dt .column {
+	font-size: 16px;
+	font-size: 1.6rem;
+	color: #153f7a;
+	padding: 3px 12px;
+	border: 1px solid #153f7a;
+	border-radius: 4px;
+}
+.mainCt ul li dd a {
+	display: block;
+	overflow: hidden;
+	line-height: 34px;
+	line-height: 3.4rem;
+}
+.mainCt ul li dd a span {
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #888;	
+}
+.mainCt ul li dd a .left_sp {
+	float: left;
+	color: #3b3b3b;
+	width: 71%;	
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.mainCt ul li dd a .right_sp {
+	float: right;
+	color: #bfbfbf;
+}
+.mainCt ul li dd a:hover .left_sp {
+	color: #153f7a;
+}
+/*菜单栏*/
+.menuBar {
+	overflow: hidden;
+	width: 100%;
+	background-color: #f4f4f4;
+	border-top: 2px solid #e3e3e3;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 40px;
+	height: 4rem;
+	line-height: 40px;
+	line-height: 4rem;
+	z-index: 999;
+}
+.menuBar .menuList {
+	overflow: hidden;
+}
+.menuList a {
+	float: left;
+	width: 33.33%;
+	display: block;
+	text-align: center;
+	height: 40px;
+	height: 4rem;
+	line-height: 40px;
+	line-height: 4rem;
+}
+.meli {
+	display: inline-block;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 30px;
+	padding-left: 3rem;
+	background-size: 2.4rem;
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #666;
+}
+.meli_1 {
+	background-image:url(../images/sl2_8.png);
+}
+.meli_2 {
+	background-image:url(../images/sl2_9.png);
+}
+.meli_3 {
+	background-image:url(../images/sl2_10.png);
+}
+.current_meliA span {
+	color: #153f7a;
+	font-weight: 600;
+}
+.current_meliA .meli_1 {
+	background-image:url(../images/sl2_8_1.png);
+}
+.current_meliA .meli_2 {
+	background-image:url(../images/sl2_9_1.png);
+}
+.current_meliA .meli_3 {
+	background-image:url(../images/sl2_10_1.png);
+}
+/*首页*/
+.indexImg {
+	position: relative;
+	height: 200px;
+	height: 20rem;
+	line-height: 200px;
+	line-height: 20rem;
+	overflow: hidden;
+	text-align: center;
+}
+.indexImg .banner1 {
+	width: 100%;
+	min-height: 200px;
+	max-height: 300px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+.imgWrap {
+	display: inline-block;
+	width: 325px;
+	height: 71px;
+}
+.indexImg .slogan {
+	display: inline-block;
+	width: 50%;
+	vertical-align: middle;
+}
+.indexMenu {
+	overflow: hidden;
+}
+.indexMenu ul {
+	padding: 0 20px;
+}
+.indexMenu ul li {
+	float: left;
+	width:33.33%;
+	text-align: center;
+	margin: 8% 0 0;
+}
+.indexMenu ul li img {
+	max-width: 50%;
+	margin: 0 auto;
+}
+.indexMenu ul li span {
+	padding-top: 10px;
+	display: block;
+	font-size: 15px;
+	font-size: 1.5rem;
+	color: #434343;
+}
+/*通讯录*/
+.mainCt1 {
+	overflow: hidden;
+	padding: 44px 0 42px;
+	padding: 4.4rem 0 42px;
+}
+.mainCt1 .ctWrap {
+	padding: 0 20px;
+}
+.mainCt1 ul li {
+	padding-top: 20px;
+	padding-top: 2rem;
+	line-height: 28px;
+	line-height: 2.8rem;
+}
+.mainCt1 ul li .mainItem {
+	font-size: 20px;
+	font-size: 2rem;
+	color: #153f7a;
+	background-size: 2rem;
+	padding-left: 30px;
+	padding-left: 3rem;
+}
+.mainCt1 ul li dl {
+	padding-left: 30px;
+	padding-left: 3rem;
+}
+.mainCt1 ul li dl dt a {
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #3b3b3b;
+	
+	background-size: 1.8rem;
+	padding-left: 28px;
+	padding-left: 2.8rem;
+}
+  .close{
+            background: url(../images/sl5_1_1.png) left center no-repeat;
+        }
+          .open{
+            background: url(../images/sl5_1.png) left center no-repeat;
+        }
+.mainCt1 ul li dl dd {
+	overflow: hidden;
+	padding-left: 30px;
+	padding-left: 3rem;
+}
+.mainCt1 ul li dl dd span {
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #3b3b3b;
+	padding-left: 28px;
+	padding-left: 2.8rem;
+}
+.mainCt1 ul li dl dd .userName {
+	float: left;
+	background:url(../images/sl5_2.png) left center no-repeat;
+	background-size: 1.8rem;
+}
+.mainCt1 ul li dl dd .tell {
+	color: #9c9f9f;
+	float: right;
+	background:url(../images/sl5_3.png) left center no-repeat;
+	background-size: 1.2rem;
+	padding-left: 22px;
+	padding-left: 2.2rem;
+}
+/*日历预留空间*/
+.calimgWrap {
+	height: 400px;
+	height: 40rem;
+}
+.calimgWrap .calImg {
+	width: 100%;
+	height: 400px;
+	height: 40rem;
+}
+.calendar .cal_btn {
+	display: block;
+	margin: 12px 12px 0;
+	height: 40px;
+	height: 4rem;
+	line-height: 40px;
+	line-height: 4rem;
+	font-size: 16px;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	background-color: #153f7a;
+	border-radius: 2px;
+}
+.calendar .cal_btn:hover {
+	background-color: #1c4886;
+}
+
+@media screen and (orientation: landscape) { 
+	.indexMenu {
+		overflow: hidden;
+		padding-bottom: 80px;
+	}
+}
+@media only screen and (max-width: 2560px){
+	.indexMenu ul li {
+		width: 25%;
+		margin: 8% 0 0;
+	}
+}
+@media only screen and (max-width: 2048px){
+
+}
+@media only screen and (max-width: 1920px){
+	.indexMenu ul li {
+		width: 25%;
+		margin: 8% 0 0;
+	}
+}
+@media only screen and (max-width: 1366px){
+	.loginWrap ul li input,.password .key_word {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+	.rememb .rem {
+		font-size: 14px;
+		font-size: 1.4rem;
+	}
+	.loginWrap ul .loginTip span {
+		font-size: 14px;
+		font-size: 1.4rem;
+		background-size: 1.4rem;
+	}
+	.cpInfo span {
+		font-size: 1.4px;
+		font-size: 1.4rem;
+	}
+}
+@media only screen and (max-width: 1280px){
+	.loginWrap ul li input,.password .key_word{
+		font-size: 19px;
+		font-size: 1.9rem;
+	}
+	.rememb .rem {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+	.loginWrap ul .loginTip span {
+		font-size: 15px;
+		font-size: 1.5rem;
+		background-size: 1.5rem;
+	}
+	.cpInfo span {
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (max-width: 1024px){
+	.indexMenu ul li {
+		width: 33.33%;
+		margin: 4% 0 0;
+	}
+	.indexMenu ul li img {
+		max-width: 30%;
+	}
+}
+@media only screen and (max-width: 980px){
+	.loginWrap {
+		width: 52%;
+	}
+	.indexMenu ul li {
+		margin: 6% 0 0;
+	}
+	.indexMenu ul li img {
+		max-width: 50%;
+	}
+}
+@media only screen and (max-width: 768px){
+    html {
+        font-size: 82%!important;
+    }
+	.loginWrap {
+		width: auto;
+		margin: 0 20px;
+	}
+	.indexMenu ul li {
+		margin: 8% 0 0;
+	}
+}
+@media only screen and (max-width: 640px){
+    html {
+        font-size: 71%!important;
+    }
+}
+@media only screen and (max-width: 560px){
+
+}
+@media only screen and (max-width: 480px){
+    html {
+        font-size: 51%!important;
+    }
+}
+@media only screen and (max-width: 360px){
+    html {
+        font-size: 50%!important;
+    }
+	.meli {
+		font-size: 15px;
+	}
+}
+

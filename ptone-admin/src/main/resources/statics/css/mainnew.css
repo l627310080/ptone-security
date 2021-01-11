@@ -1,0 +1,429 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,figure,figcaption,code,del,dfn,em,image,q,dl,dt,dd,ol,ul,li,fieldset,form,legend,table,td,tr,th,section,b,select,option {
+	border: 0px;
+	outline: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: normal;
+}
+html,body {
+	font-family: 'Helvetica','Arial';
+}
+ul, ol, li, dl {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	display: block;
+	-ms-interpolation-mode: bicubic;
+}
+::selection { 
+	background:#e51011; 
+	color:white;
+}
+::-moz-selection { 
+	background:#e51011; 
+	color:white;
+}
+::-webkit-selection { 
+	background:#e51011; 
+	color:white;
+}
+.bk_1 {
+	background-color: #f7f7f7;
+}
+/*取消a标签在移动端点击时的蓝色*/
+a,button,input,i,dd { 
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);    
+}
+/*去掉 input type="number" 在浏览器中遗留的图标样式*/
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{  /* chrome */
+    -webkit-appearance: none!important;  
+    margin: 0;  
+}
+input[type="number"]{
+	-moz-appearance:textfield; /*Firefox*/
+}
+
+/*入口部分*/
+.conf_bk {
+	position: absolute;
+	width: 100%;
+    height:100%;
+    top: 0%; 
+	left:0%;
+	z-index: -1;	
+}
+.conf_bk img {
+	width: 100%;
+    height:100%;
+}
+.confBox {
+	overflow: hidden;
+	text-align: center;
+}
+.confWrap {
+	display: inline-block;
+	margin: 12rem 0 7rem;
+}
+.lt_logo {
+	float: left;
+	width: 12rem;
+}
+.rt_title {
+	float: left;
+	margin: 1rem 0 0 2rem;
+	text-align: left;
+}
+.rt_title span {
+	display: block;
+	font-size: 3.2rem;
+	color: #fff;
+	font-weight: bold;
+}
+.enter_btn {
+	display: inline-block;
+	font-size: 2.4rem;
+	color: #fff;
+	padding: 1.2rem 3.8rem;
+	background-color: #fba027;
+}
+.conf_entrance {
+	text-align: center;
+	position: absolute;
+	bottom: 4rem;
+	left: 0;
+	width: 100%;
+}
+.conf_entrance ul li {
+	display: inline-block;
+}
+.mid_btn {
+	margin: 0 1rem;
+}
+.conf_entrance a {
+	display: inline-block;
+	font-size: 1.9rem;
+	color: #fff;
+	width: 20rem;
+	padding: 1rem;
+	border: 1px solid #fff;
+}
+/*导航栏*/
+.topWrap {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background-color: #fff;
+}
+.headTitle {
+    position: relative;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    overflow: hidden;
+}
+.head_bk {
+    background-color: #e51011;
+}
+.headTitle a {
+    height: 5rem;
+    line-height: 5rem;
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    position: absolute;
+    top: 0;
+	font-size: 2rem;
+	color: #fff;
+}
+.lt_btn {
+    background: url(../images/conf_4.png) left center;
+    background-size: 1.4rem;
+    left: 12px;
+	padding-left: 1.4rem;
+}
+.titleName {
+	display: inline-block;
+	font-size: 2.2rem;
+	color: #fff;
+	width: 70%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.ctWrap {
+	padding: 14rem 0 1.2rem;
+}
+.ctWrap_1 {
+	padding: 5rem 0 1.2rem;
+}
+/*主要内容*/
+.confLead {
+	height: 9rem;
+    background: url(../images/conf_3.png) left center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.confLead dl {
+	padding: 1.6rem 20px 0;
+}
+.confLead dl span {
+	display: block;
+	font-size: 1.8rem;
+	line-height: 1.6;
+	color: #333;
+}
+.confLead dt {
+	float: left;
+    background: url(../images/xh.png) left center no-repeat;
+	background-size: 5rem;
+	padding-left: 6rem;
+}
+.confLead dd {
+	float: right;
+	text-align: right;
+}
+.conf_list ul {
+	padding: 0 20px;
+}
+.conf_list ul li {
+	margin-top: 20px;
+	background-color: #fff;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+	font-size: 1.6rem;
+}
+.conf_list ul li dt {
+	padding: 1.2rem 0;
+	border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+}
+.lt_sign {
+	float: left;
+	margin-left: 12px;
+	background-size: 1.8rem;
+	padding-left: 2.4rem;
+	background-position: left center;
+    background-repeat: no-repeat;
+}
+.rt_sign {
+	float: right;
+	margin-right: 12px;
+}
+.conf_list ul li dd {
+	padding: 1.2rem 12px;
+}
+.state_end {
+	color: #b2b2b2;
+}
+.state_ing {
+	color: #7fc66a;
+}
+.state_notStarted {
+	color: #477bad;
+}
+.state_end .lt_sign {
+    background-image: url(../images/conf_6_1.png);
+}
+.state_ing .lt_sign {
+    background-image: url(../images/conf_6_2.png);
+}
+.state_notStarted .lt_sign {
+    background-image: url(../images/conf_6_3.png);
+}
+.state_ing .rt_sign {
+    background: url(../images/conf_8.png) left center no-repeat;
+	background-size: .65rem;
+	padding-left: 1rem;
+}
+.conf_title {
+	color: #333;
+}
+.conf_speaker {
+	color: #333;
+	margin-top: 1.2rem;
+	overflow: hidden;
+	position: relative;
+	padding-left: 2rem;
+}
+.speak_ic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 42px;
+    background: url(../images/conf_7.png) left top no-repeat;
+	background-size: 1.6rem;
+}
+/*通用详情页面*/
+.detailCt {
+	font-family: "宋体",'Arial';
+}
+.detailCt .detailWrap {
+	padding: 24px 20px 30px;
+}
+.textTitle {
+	font-size: 26px;
+	font-size: 2.6rem;
+	color: #333;
+	font-weight: bold;
+	text-align: center;
+}
+.textInfo {
+	text-align: center;
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #333;
+	padding: 10px 0 1.2rem;
+}
+.textDetail p {
+	font-size: 18px;
+	font-size: 1.8rem;
+	text-indent: 36px;
+	text-indent: 3.6rem;
+	line-height: 26px;
+	padding-top: 6px;
+}
+.textDetail h3 {
+	padding-top: 6px;
+	font-size: 20px;
+	font-size: 2rem;
+	text-indent: 3.6rem;
+	font-weight: inherit;
+}
+.textDetail .main_lead {
+	font-weight: bold;
+}
+.brush {
+	position: fixed;
+	right: 20px;
+	bottom: 4rem;
+}
+.brush dd {
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 100%;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	background-color: #666;
+	margin-bottom: 1.2rem;
+}
+.brush dd span {
+	display: inline-block;
+}
+.brush dd .ic {
+	display: block;
+	height: 1.8rem;
+    background: url(../images/conf_10.png) center center no-repeat;
+	background-size: 1.6rem;
+	padding-top: .6rem;
+}
+.brush .bru_1 {
+	background-color: #91d27d;
+}
+.brush .bru_2 {
+	background-color: #eec237;
+}
+.brush .bru_3 {
+	background-color: #d75b58;
+}
+.brush .bru_4 {
+	background-color: #444444;
+}
+.brush .bru_1 .ic {
+    background: url(../images/conf_9.png) center center no-repeat;
+	background-size: 1.8rem;
+}
+
+@media only screen and (max-width: 800px){
+    html {
+        font-size: 56%!important;
+    }
+	.conf_entrance a {
+		width: 16.5rem;
+	}
+}
+@media only screen and (max-width: 640px){
+    html {
+        font-size: 52%!important;
+    }
+	.confLead {
+		-moz-box-shadow: 0px 1px 5px #ccc;
+		-webkit-box-shadow: 0px 1px 5px #ccc;
+		box-shadow: 0px 1px 5px #ccc;
+	}
+	.confLead dl {
+		padding: 1.6rem 12px 0;
+	}
+	.conf_list ul {
+		padding: 0 12px;
+	}
+}
+@media only screen and (max-width: 560px){
+	.ctWrap {
+		padding: 20rem 0 1.2rem;
+	}
+	.confLead {
+		height: 15rem;
+	}
+	.confLead dt {
+		float: none;
+	}
+	.confLead dd {
+		float: none;
+		text-align: left;
+		margin-top: 1rem;
+	}
+}
+@media only screen and (max-width: 480px){
+	.conf_entrance a {
+		font-size: 2.0rem;
+		width: 20rem;
+	}
+	.lt_logo {
+		width: 9rem;
+	}
+	.rt_title span {
+		font-size: 2.4rem;
+	}
+	.mid_btn {
+		margin: 1.4rem 0;
+	}
+	.conf_entrance ul li {
+		display: block;
+	}
+	.rt_title {
+		margin: 1.4rem 0 0 2rem;
+	}
+}
+@media only screen and (max-width: 360px){
+	.enter_btn {
+		font-size: 2.6rem;
+	}
+	.lt_logo {
+		width: 8rem;
+	}
+	.rt_title span {
+		font-size: 2.4rem;
+	}
+	
+}
+@media only screen and (max-width: 350px){
+	.titleName {
+		width: 64%;
+	}
+}
+

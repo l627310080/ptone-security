@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ptone.modules.cms.dao.ColumnInfoDao">
+
+    <resultMap type="com.ptone.modules.cms.dto.ColumnInfoDTO" id="bizColumnInfoMap">
+        <result property="id" column="id"/>
+        <result property="infoId" column="info_id"/>
+        <result property="columnId" column="columnId"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <association property="infoPublishDTO" javaType="com.ptone.modules.cms.dto.InfoPublishDTO">
+            <result property="id" column="id"/>
+            <result property="title" column="title"/>
+            <result property="href" column="href"/>
+            <result property="coverPicture" column="coverPicture"/>
+            <result property="showDate" column="showDate"/>
+            <result property="infoSort" column="infoSort"/>
+            <result property="publisher" column="publisher"/>
+            <result property="content" column="content"/>
+            <result property="createDate" column="create_date"/>
+            <result property="creator" column="creator"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="updator" column="updator"/>
+        </association>
+        <association property="columnDTO" javaType="com.ptone.modules.cms.dto.ColumnDTO">
+            <result property="id" column="columnId"/>
+            <result property="name" column="name"/>
+            <result property="code" column="code"/>
+            <result property="pcode" column="pcode"/>
+            <result property="sort" column="sort"/>
+            <result property="siteStatus" column="site_status"/>
+            <result property="showStatus" column="show_status"/>
+            <result property="introduction" column="introduction"/>
+            <result property="createDate" column="create_date"/>
+            <result property="creator" column="creator"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="updator" column="updator"/>
+        </association>
+    </resultMap>
+
+    <resultMap type="com.ptone.modules.cms.dto.ColumnInfoDTO" id="bizColumnMap">
+        <result property="id" column="id"/>
+        <result property="infoId" column="info_id"/>
+        <result property="columnId" column="columnId"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <association property="infoPublishDTO" column="info_id" select=""/>
+        <association property="columnDTO" column="columnId" select="" />
+    </resultMap>
+
+    <select id="getInfoList" resultMap="bizColumnInfoMap">
+        select  bc.code,bip.id,bip.title,bip.top_status topStatus,bip.info_sort infoSort,bip.href,bip.content,bip.show_date showDate,bip.publisher from  biz_info_publish bip  left join  biz_column_info bci on bip.id = bci.info_id join biz_column bc on bci.column_id = bc.id
+        <where>
+           1  =     1  and bci.hide=0
+            <if test="title!=null and title.length()>0">
+                and title like concat('%',#{title},'%')
+            </if>
+            <if test="pcode!=null and pcode.length()>0">
+                and code =#{pcode}
+            </if>
+
+        </where>
+        order by  top_status desc,bip.info_sort asc,show_date desc,bci.create_date desc
+    </select>
+</mapper>

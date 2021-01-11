@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <#include "/header.html">
+</head>
+<body>
+  <div v-cloak class="aui-wrapper aui-page__iframe">
+    <div class="aui-content__wrapper">
+      <div class="aui-content">
+        <div style="text-align: center;font-size: 28px">{{dataForm.title}}</div>
+        <el-divider></el-divider>
+        <div v-html="dataForm.content"></div>
+        <div>
+          <hr size=1 color="#ddd" style="margin:30px 0 10px 0;">
+          <span><i class="el-icon-user-solid" style="color: #e6444a"></i> {{ $t('notice.senderName') }}：{{dataForm.senderName}}</span>
+          <el-divider direction="vertical"></el-divider>
+          <span><i class="el-icon-time" style="color: #e6444a"></i> {{ $t('notice.senderDate') }}：{{dataForm.senderDate}}</span>
+          <el-divider direction="vertical" style="margin: 0px;padding:0px;"></el-divider>
+          <span><i class="el-icon-s-order" style="color: #E6A23C"></i> {{ $t('notice.type') }}：
+              <template>
+              {{ $utils.getDictLabel("notice_type", dataForm.type) }}
+              </template>
+          </span>
+          <hr  size=1 color="#ddd" style="margin:10px 0 30px 0;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <#include "/footer.html">
+  <script src="${request.contextPath}/statics/js/modules/notice/notice-user-view.js"></script>
+</body>
+</html>

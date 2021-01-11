@@ -1,0 +1,18 @@
+.el-table__body tr,
+.el-table__body td {
+    padding: 0;
+    height: 40px;
+}
+.el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+    border-right: 0px !important;
+    border-left: 0px !important;
+}
+.el-table--border, .el-table--group{
+    border:0px !important;
+}
+
+/*此样式会导致选人控件选不中人*/
+/*
+.el-dropdown .el-dropdown-selfdefine:focus:active, .el-dropdown .el-dropdown-selfdefine:focus:not(.focusing), .el-message__closeBtn:focus, .el-message__content:focus, .el-popover:focus, .el-popover:focus:active, .el-popover__reference:focus:hover, .el-popover__reference:focus:not(.focusing), .el-rate:active, .el-rate:focus, .el-tooltip:focus:hover, .el-tooltip:focus:not(.focusing), .el-upload-list__item.is-success:active, .el-upload-list__item .el-icon-view {
+    position: relative !important;
+}*/

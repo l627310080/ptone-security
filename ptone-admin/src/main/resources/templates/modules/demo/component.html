@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <#include "/header.html">
+
+    <link rel="stylesheet" href="../../../statics/css/custom.css">
+</head>
+<body>
+
+<div v-cloak class="aui-wrapper aui-page__iframe">
+  <div class="aui-content__wrapper">
+    <div class="aui-content">
+<!--<button-counter></button-counter>-->
+        <!--<button-counter></button-counter>-->
+        <!--<button-counter></button-counter>-->
+        <!--&lt;!&ndash;添加选人控件&ndash;&gt;-->
+        <!--&lt;!&ndash;selected-user-list 为初始选中的人员&ndash;&gt;-->
+
+        <main-select-user  v-model="selUserList3">
+
+        </main-select-user>
+        <el-popover popper-class="popper-center" width="100" v-model="deptListVisible" ref="deptListPopover" placement="bottom-start" trigger="click">
+
+            <el-select slot="reference"  v-model="selUserList2" placeholder="请选择">
+
+        </el-select>
+
+        </el-popover>
+<!--<uploadfy v-model="fileList" ></uploadfy>-->
+        <!--&lt;!&ndash;<el-upload&ndash;&gt;-->
+        <!--<uploadfy ref="up1" title="附件上传2" ref-table-id="2" ref-table-name="3" type-code="aaa1" v-model="fileList2" :before-remove-hadle="beforeRemove"></uploadfy>-->
+
+        <!--<main-select-list :search-data="searchParam" :query-data-url="queryUrl" search-field="filed1" @user-list="getUserList"></main-select-list>-->
+
+        <!--<el-select v-model="dicValue1" placeholder="请选择"  @change="dicChange">-->
+            <!--<el-option-->
+                    <!--v-for="item in options"-->
+                    <!--:key="item.value"-->
+                    <!--:label="item.label"-->
+                    <!--:value="item.value">-->
+            <!--</el-option>-->
+        <!--</el-select>-->
+        <!--<main-select-dic v-model="dicValue1" :item-change="dicChange" @selected-change="dicChange" dict-type="gender"  ></main-select-dic>-->
+        <!--&lt;!&ndash;<el-upload&ndash;&gt;-->
+                <!--class="upload-demo"-->
+                <!--action="https://jsonplaceholder.typicode.com/posts/"-->
+                <!--multiple-->
+                <!--:limit="3"-->
+                <!--:file-list="fileList">-->
+            <!--<el-button size="small" type="primary">点击上传</el-button>-->
+            <!--<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
+        <!--</el-upload>-->
+
+
+
+        <!--<el-button @click="sendCPMSG()">发送企业微信消息</el-button>-->
+        <!--<el-button @click="sendMPMSG()">发送公众号消息</el-button>-->
+        <!--<el-button @click="sendMail()">发送测试邮件</el-button>-->
+        <!--<el-button @click="sendCPMSG()">发送测试短信</el-button>-->
+        <!--<el-button @click="sendSysMSG()">发送系统消息</el-button>-->
+        <!--<el-button @click="sendWebSocketMSG()">发送Websocket消息</el-button>-->
+        <!--<el-button @click="insertCache()">插入缓存</el-button>-->
+        <!--<el-button @click="takeCache()">获取缓存</el-button>-->
+    </div>
+  </div>
+</div>
+<#include "/footer.html">
+
+<script src="${request.contextPath}/statics/js/modules/demo/compoment.js?_${.now?long}"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ptone.modules.cms.dao.InfoPublishDao">
+
+    <resultMap type="com.ptone.modules.cms.entity.InfoPublishEntity" id="bizInfoPublishMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="href" column="href"/>
+        <result property="coverPicture" column="cover_picture"/>
+        <result property="showDate" column="show_date"/>
+        <result property="infoSort" column="info_sort"/>
+        <result property="publisher" column="publisher"/>
+        <result property="content" column="content"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <collection column="code" property="children" ofType="com.ptone.modules.cms.dto.ColumnDTO"   javaType="java.util.ArrayList" select="selectColumnChildrenByCodeAdmin"/>
+    </resultMap>
+
+    <select id="findById" parameterType="Long" resultType="com.ptone.modules.cms.dto.InfoPublishDTO">
+        SELECT bip.ID, bip.TITLE, bip.INFO_SORT, bip.HREF, bip.COVER_PICTURE
+            , bip.SHOW_DATE, bip.PUBLISHER, bip.CONTENT, bip.CREATE_DATE, bip.CREATOR
+            , bip.UPDATE_DATE, bip.UPDATOR, bip.TOP_STATUS, bip.HIDE, bip.PDF_ADDRESS
+            , bip.INTRODUCTION
+        FROM BIZ_INFO_PUBLISH bip
+            LEFT JOIN BIZ_COLUMN_INFO bci ON bip.ID = bci.INFO_ID
+        WHERE
+            bci.HIDE = 0 and bip.id=#{id}
+    </select>
+
+    <select id="findPage" parameterType="map" resultType="com.ptone.modules.cms.entity.InfoPublishEntity">
+        SELECT bip.ID, bip.TITLE, bip.INFO_SORT, bip.HREF, bip.COVER_PICTURE
+            , bip.SHOW_DATE, bip.PUBLISHER, bip.CONTENT, bip.CREATE_DATE, bip.CREATOR
+            , bip.UPDATE_DATE, bip.UPDATOR, bip.TOP_STATUS, bip.HIDE, bip.PDF_ADDRESS
+            , bip.INTRODUCTION
+        FROM BIZ_INFO_PUBLISH bip
+            LEFT JOIN BIZ_COLUMN_INFO bci ON bip.ID = bci.INFO_ID
+        WHERE
+            bci.HIDE = 0
+            and
+            bci.COLUMN_ID = #{columnId} limit #{page},#{limit}
+    </select>
+
+    <select id="findTotal" parameterType="Map" resultType="Integer">
+        select count(bip.ID) FROM BIZ_INFO_PUBLISH bip
+            LEFT JOIN BIZ_COLUMN_INFO bci ON bip.ID = bci.INFO_ID
+        WHERE
+            bci.HIDE = 0
+            and
+            bci.COLUMN_ID = #{columnId}
+    </select>
+
+</mapper>

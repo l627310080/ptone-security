@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ptone.modules.cms.dao.ColumnDao">
+
+    <resultMap type="com.ptone.modules.cms.dto.ColumnDTO" id="bizColumnMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="pcode" column="pcode"/>
+        <result property="sort" column="sort"/>
+        <result property="siteStatus" column="site_status"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="introduction" column="introduction"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <collection column="{code=code,userId=userId}" property="children" ofType="com.ptone.modules.cms.dto.ColumnDTO"
+                    javaType="java.util.ArrayList" select="selectColumnChildrenByCode"/>
+
+    </resultMap>
+
+    <resultMap type="com.ptone.modules.cms.dto.ColumnDTO" id="bizColumnMapAdmin">
+        <result property="id" column="id"/>
+        <result property="columnId" column="columnId"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="pcode" column="pcode"/>
+        <result property="sort" column="sort"/>
+        <result property="siteStatus" column="site_status"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="introduction" column="introduction"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <collection column="code" property="children" ofType="com.ptone.modules.cms.dto.ColumnDTO"
+                    javaType="java.util.ArrayList" select="selectColumnChildrenByCodeAdmin"/>
+    </resultMap>
+
+
+    <resultMap type="com.ptone.modules.cms.dto.ColumnDTO" id="bizColumnMap2">
+        <result property="id" column="id"/>
+        <result property="columnId" column="columnId"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="pcode" column="pcode"/>
+        <result property="sort" column="sort"/>
+        <result property="siteStatus" column="site_status"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="introduction" column="introduction"/>
+        <result property="createDate" column="create_date"/>
+        <result property="creator" column="creator"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="updator" column="updator"/>
+        <collection column="code" property="children" ofType="com.ptone.modules.cms.dto.ColumnDTO"
+                    javaType="java.util.ArrayList" select="selectColumnChildrenByCodeAdmin"/>
+        <collection column="columnId" property="infoPublishs" ofType="com.ptone.modules.cms.entity.InfoPublishEntity"
+                    javaType="java.util.ArrayList" select="com.ptone.modules.cms.dao.InfoPublishDao.selectByColumnId"/>
+    </resultMap>
+
+    <!-- 先查询菜单根级目录 -->
+    <!-- 这里的返回结果必须为resultMap，并且值为上面构建的resultMap的id的值 -->
+    <select id="getCategoryList" resultMap="bizColumnMap">
+       select * ,id columnId,#{userId} userId from biz_column where pcode = '-1' and hide = 0
+    </select>
+    <select id="getCategoryListAdmin" resultMap="bizColumnMapAdmin">
+           select * ,id columnId from biz_column where pcode = '-1' and hide = 0
+    </select>
+
+    <select id="getCategoryAndInfoList" resultMap="bizColumnMap2">
+           select * ,id columnId from biz_column where code = #{code}
+    </select>
+
+    <!-- 再利用上次查询结果colliection中column的值cid做递归查询，查出所有子菜单 -->
+    <!-- 这里的返回结果必须为resultMap，并且值为上面构建的resultMap的id的值 -->
+    <select id="selectColumnChildrenByCode" resultMap="bizColumnMap" parameterType="map">
+            select distinct bc.id columnId,name,code,#{userId} userId from sys_role_user sru join sys_user
+            su on sru.user_id=su.id  join sys_role_column src on src.role_id=sru.role_id join biz_column bc on bc.id=src.column_id
+            where
+                pcode =#{code}
+                    and sru.user_id=#{userId}
+
+    </select>
+    <select id="selectColumnChildrenByCodeAdmin" resultMap="bizColumnMapAdmin" parameterType="map">
+            select * ,id columnId from biz_column where pcode= #{code}
+    </select>
+    <select id="getCoulumnParentsAdmin" resultMap="bizColumnMapAdmin">
+
+        select *,id columnId from biz_column where hide = 0 and find_in_set (code,getParList(#{code}))
+    </select>
+    <select id="getCoulumnParents" resultMap="bizColumnMapAdmin">
+         select distinct bc.id columnId,name,code
+         from sys_role_user sru join sys_user
+            su on sru.user_id=su.id  join sys_role_column src on src.role_id=sru.role_id join biz_column bc on bc.id=src.column_id
+         where user_id=#{userId}   and
+        find_in_set (code,getParList(#{code}))
+
+    </select>
+</mapper>

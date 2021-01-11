@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <#include "/header.html">
+</head>
+<body>
+  <div v-cloak class="aui-wrapper aui-page__iframe">
+    <div class="aui-content__wrapper">
+      <div class="aui-content">
+        <el-card shadow="never" class="aui-card--fill">
+          <div style="text-align: center;font-size: 28px">{{dataForm.title}}</div>
+          <el-divider></el-divider>
+          <div v-html="dataForm.content"></div>
+          <div>
+            <hr size=1 color="#ddd" style="margin:30px 0 10px 0;">
+            <span><i class="el-icon-user-solid" style="color: #e6444a"></i> {{ $t('notice.senderName') }}：{{dataForm.senderName}}</span>
+            <el-divider direction="vertical"></el-divider>
+            <span><i class="el-icon-time" style="color: #e6444a"></i> {{ $t('notice.senderDate') }}：{{dataForm.senderDate}}</span>
+            <el-divider direction="vertical" style="margin: 0px;padding:0px;"></el-divider>
+            <span><i class="el-icon-s-order" style="color: #E6A23C"></i> {{ $t('notice.type') }}：
+              <template>
+              {{ $utils.getDictLabel("notice_type", dataForm.type) }}
+              </template>
+          </span>
+            <hr  size=1 color="#ddd" style="margin:10px 0 30px 0;">
+          </div>
+          <el-table v-loading="dataListLoading" :data="dataList" border @selection-change="dataListSelectionChangeHandle" style="width: 100%;">
+            <el-table-column prop="receiverName" :label="$t('notice.receiverName')" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="readStatus" :label="$t('notice.readStatus')" header-align="center" align="center">
+              <template slot-scope="scope">
+                <el-tag v-if="scope.row.readStatus === 0" size="small" type="danger">{{ $t('notice.readStatus0') }}</el-tag>
+                <el-tag v-else size="small" type="success">{{ $t('notice.readStatus1') }}</el-tag>
+              </template>
+            </el-table-column>
+            <el-table-column prop="readDate" :label="$t('notice.readDate')" header-align="center" align="center"></el-table-column>
+          </el-table>
+          <el-pagination
+                  :current-page="page"
+                  :page-sizes="[10, 20, 50, 100]"
+                  :page-size="limit"
+                  :total="total"
+                  layout="total, sizes, prev, pager, next, jumper"
+                  @size-change="pageSizeChangeHandle"
+                  @current-change="pageCurrentChangeHandle">
+          </el-pagination>
+        </el-card>
+      </div>
+    </div>
+  </div>
+  <#include "/footer.html">
+  <script src="${request.contextPath}/statics/js/modules/notice/notice-view.js"></script>
+</body>
+</html>

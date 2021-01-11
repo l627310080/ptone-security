@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <#include "/header.html">
+    <meta charset="UTF-8">
+    <title>信息发布详情</title>
+</head>
+<body>
+        <div id="detail" style="text-align: center;width: 100%;height: 100%" >
+            <h1>{{infopublish.title}}</h1>
+            <small>
+                发布时间: {{infopublish.showDate}}</small>
+                <small >发布人: {{infopublish.publisherName}} </small>
+            <hr/>
+            <div>所属栏目:{{columnNames}}</div>
+            <div>封面:<img :src="coverUrl" width="150px" height="150px"/></div>
+            <div v-html="contentHtml"></div>
+            <div v-html="attachmentsHtml" height="150px"></div>
+        </div>
+</body>
+<#include "/footer.html">
+<script src="${request.contextPath}/statics/js/modules/cms/infopublishDetail.js?_${.now?long}"></script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <#include "/header.html">
+  <link rel="stylesheet" href="${request.contextPath}/statics/css/custom.css" />
+</head>
+<body>
+<div v-cloak class="aui-wrapper aui-page__iframe">
+  <div class="aui-content__wrapper">
+    <div class="aui-content">
+      <el-card shadow="never" class="aui-card--fill">
+        <div class="mod-cms__bizcolumn">
+          <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+            <el-form-item>
+              <el-input v-model="dataForm.name" placeholder="栏目名称"  @keyup.enter.native="getDataList()"></el-input>
+              <el-input v-model="dataForm.pcode" style="display: none" placeholder="父节点" clearable></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button @click="getDataList()">{{ $t('query') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button v-if="$hasPermission('cms:bizcolumn:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button v-if="$hasPermission('cms:bizcolumn:delete')" type="danger" @click="deleteHandle()">{{ $t('deleteBatch') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button  type="success" @click="updateSort">排序</el-button>
+            </el-form-item>
+          </el-form>
+          <el-container style="height: 500px; border: 1px solid #eee">
+            <el-aside  width="200px">
+              <el-tree :data="columnList"    :expand-on-click-node="false" :default-expand-all="true" @node-click="columnChange" :highlight-current="true"  ></el-tree>
+            </el-aside>
+            <el-container>
+              <el-table v-loading="dataListLoading" :data="dataList" border @selection-change="dataListSelectionChangeHandle" style="width: 100%;">
+                <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
+                <el-table-column prop="name" label="栏目名称" header-align="center" align="left"></el-table-column>
+                <el-table-column prop="pcode" label="上级栏目" header-align="center" align="center"></el-table-column>
+<!--                <el-table-column prop="introduction" label="栏目介绍" header-align="center" align="center"></el-table-column>-->
+                <el-table-column width="120px" label="排序" header-align="center" align="center">
+                  <template slot-scope="scope">
+                    <el-input-number :min="0" size="mini" :step="10" v-model="scope.row.sort"
+                                     @change="sort(scope.row.id,scope.row.sort)" style="width: 100px"></el-input-number>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
+                  <template slot-scope="scope">
+                    <el-button v-if="$hasPermission('cms:bizcolumn:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+                    <el-button v-if="$hasPermission('cms:bizcolumn:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </el-container>
+          </el-container>
+          <el-pagination
+            :current-page="page"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="limit"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper"
+            @size-change="pageSizeChangeHandle"
+            @current-change="pageCurrentChangeHandle">
+          </el-pagination>
+          <!-- 弹窗, 新增 / 修改 -->
+          <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refresh-data-list="getDataList" @refresh-column-list="getColumnList"></add-or-update>
+        </div>
+      </el-card>
+    </div>
+  </div>
+</div>
+<#include "/footer.html">
+<script src="${request.contextPath}/statics/js/modules/cms/bizcolumn.js?_${.now?long}"></script>
+</body>
+</html>
